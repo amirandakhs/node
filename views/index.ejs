@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("./partials/head.ejs") %>
+</head>
+<body>
+    <%- include("./partials/nav.ejs")  %>
+    <div class="blogs content">
+        <h2>All Codes</h2>
+        <% if (blogs.length > 0) { %>
+        <% blogs.forEach(blog => { %>
+
+            <a class="single" href="/blogs/<%= blog._id %>">
+                <h3 class="title" style="display: block;
+                width: 250px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;"><%= blog.title %></h3>
+                <p class="snippet" style="display: block;
+                width: 1000px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;"
+                ><%= blog.snippet %></p>
+            </a>
+            <% }) %>
+        <% } else { %>
+        <p>There are no problem to display...</p>
+        <% } %>
+
+    </div>
+    <%- include("./partials/footer.ejs") %>
+</body>
+</html>
